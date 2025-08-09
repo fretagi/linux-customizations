@@ -1,0 +1,13 @@
+Install Fonts from www.nerdfonts.com
+1. create a dir in your home a folder called .fonts
+2. download Fira Code Nerdfont from www.nerdfonts.com
+3. unzip the file (unzip FiraCode.zip)
+4. move the *.ttf files to .fonts folder (mv *.ttf ~/.fonts)
+
+Install starship from starship from starship.rs site
+curl -sS https://starship.rs/install.sh | sh
+copy this: eval "$(starship init bash)" to .bashrc file
+
+Customize starship
+touch ~/.config/starship.toml
+enter customizations for various prompts here
