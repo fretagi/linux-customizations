@@ -3,6 +3,7 @@ Install Fonts from www.nerdfonts.com
 2. download Fira Code Nerdfont from www.nerdfonts.com
 3. unzip the file (unzip FiraCode.zip)
 4. move the *.ttf files to .fonts folder (mv *.ttf ~/.fonts)
+5. fc-cache -fv
 
 Install starship from starship from starship.rs site
 curl -sS https://starship.rs/install.sh | sh

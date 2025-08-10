@@ -1,0 +1,307 @@
+grep "[[:space:]]ro[[:space:],]" /proc/mounts  ---> view read only mount points
+
+
+cat /etc/group | grep platops
+
+groupadd platops
+
+
+
+useradd -c "Platform Operations service account" -g sshlogin -s /bin/bash platops && echo "Altice2023" | passwd --stdin platops && chage -d 0 Altice2023
+
+usermod -G platops
+
+............................................................
+
+CREATING A USER WITH A DIFFERENT HOME DIRECTORY IN RED HAT:
+
+useradd -c "TASK3545013" -g sshlogin -s /bin/bash jbgencomm && echo "Cab1eVision" | passwd --stdin jbgencomm && chage -d 0 jbgencomm
+
+usermod -d /appshr/jboss7/servers/gencommonClusterC jbgencomm
+
+usermod -G jboss7 jbgencomm
+
+
+..................................................................
+
+useradd -c "Venkatesh-Pareek_TASK3878791" -g sshlogin -s /bin/bash vpareek && echo "Cab1eVision" | passwd --stdin vpareek && chage -d 0 vpareek
+
+echo "Cab1eVision" | passwd --stdin spawar14
+
+chage -d 0 spawar14
+
+chage -l spawar14
+
+###TASK3878791###
+vpareek ALL=(ALL) NOPASSWD: /bin/su - clarity
+
+
+9/11/22
+
+useradd -u 136051 -g sshlogin -d /export/home/gpuerto -s /bin/ksh -c "Database Admin_TASK3377465" -m -k /etc/skel gpuerto
+
+CENTOS adding user account:
+
+
+useradd -c "Name_Surname-TicketNumber" -g sshlogin -s /bin/bash username && echo "Cab1eVision" | passwd --stdin username && chage -d 0 username
+
+useradd -c "Priyanka-Shendage_TASK3972716" -g sshlogin -s /bin/bash pshendag && echo "Cab1eVision" | passwd --stdin pshendag && chage -d 0 pshendag
+
+useradd -c "service_account_appsplunkfwd_TASK4158355" -g sshlogin -s /bin/bash appsplunkfwd && echo "Cab1eVision" | passwd --stdin appsplunkfwd && chage -d 0 appsplunkfwd
+usermod -d /appshr/splunkforwarder appsplunkfwd
+usermod -G splunk appsplunkfwd
+
+
+
+
+
+SOLARIS adding user account
+
+useradd -d /export/home/<username> -s /bin/ksh -c "Name_Surname_TicketNumber" -m -k /etc/skel <username>
+
+Example:
+useradd -d /export/home/pshendag -s /bin/ksh -c "Priyanka-Shendage_TASK3682200" -m -k /etc/skel pshendag
+
+Setting password 
+
+passwd username
+passwd -f username
+
+
+
+AIX adding user account:
+
+useradd -c "Name_Surname_TicketNumber" -g sshlogin -m -d /home/<username> -s /bin/ksh <username>
+Example:
+useradd -c "Babul-Donapati_TASK4153089" -g sshlogin -m -d /home/bdonapat -s /bin/ksh bdonapat
+
+
+pwdadm <username>
+
+
+NEXPOSE ACCOUNT FOR AIX
+
+useradd -c "Service_Account_for_Security_Scan-TASK3552866" -u 371 -g nexpose -G sshlogin -m -d /home/nexpose -s /bin/ksh nexpose
+
+pwdadm nexpose
+
+chuser maxage=0 nexpose
+
+
+DEBIAN 11 (Adding user account):
+
+cat /etc/group | grep dba
+groupadd -g 550 dba
+useradd -u 1500 -m postgres -s /bin/bash -g sshlogin -G dba -c "postgres_user_CTASK0125122"
+useradd -u 30002 -m enterprisedb -s /bin/bash -g sshlogin -c "enterprisedb_user_CTASK0125122"
+useradd -u 30003 -m schedmgr -s /bin/bash -g sshlogin -c "schedmgr_user_CTASK0125122"
+
+
+
+
+useradd -m <username> -s /bin/bash -g sshlogin -c "Chad_Erato-TASK4189985" && echo -e "Cab1eVision\nCab1eVision" | passwd <username> && chage -d 0 <username>
+useradd -m cerato -s /bin/bash -g sshlogin -c "Chad_Erato-TASK4189985" && echo -e "Cab1eVision\nCab1eVision" | passwd cerato && chage -d 0 cerato
+
+useradd -m bitbucket -u 2020 -s /bin/bash -g sshlogin -c "BitBucket_App_login-TASK4236180" && echo -e "Cab1eVision\nCab1eVision" | passwd bitbucket && chage -d 0 bitbucket
+groupadd -g 2020 bitbucket
+usermod -g bitbucket bitbucket
+usermod -G sshlogin bitbucket
+
+passwd ctripath
+passwd -e ctripath
+
+CREATING A USER WITH A DIFFERENT HOME DIRECTORY IN DEBIAN:
+
+
+useradd -m tclprest -s /bin/bash -g sshlogin -c "tclprest_application_user_TASK3555390"
+
+su - tclprest
+
+
+usermod -d /appshr/tomcat8/servers/lcpRestServer2 tclprest
+
+
+su - tclprest
+
+............................................................................................................................
+
+Create users for postgres database:
+
+useradd -m enterprisedb -s /bin/bash -g sshlogin -c "postgres_database user_CTASK0115491"
+
+useradd -m schedmgr -s /bin/bash -g sshlogin -c "postgres_database user_CTASK0115491"
+
+............................................................................................................................
+
+CHANGING PASSWORDS>
+
+REDHAT
+
+echo "Cab1eVision" | passwd --stdin pjailwal
+
+chage -d 0 pjailwal
+
+chage -l pjailwal
+
+-------------------------------------
+echo "Cab1eVision" | passwd --stdin wlfocis
+chage -d 0 wlfocis
+
+chage -l wlfocis
+
+................................
+TO SET PASSWORD IN AIX:
+
+pwdadm <username>
+
+...............................
+
+
+To set passwd in Debian 11:
+
+passwd krodri43
+passwd -e krodri43
+....................................
+
+Set passwd in SOLARIS 10:
+
+passwd username
+passwd -f username
+
+.........................
+
+
+
+
+####TASK3667808####
+
+opc_op ALL=(ALL) NOPASSWD: /bin/systemctl restart telegraf, /bin/systemctl stop telegraf, /bin/systemctl start telegraf, /bin/systemctl status telegraf
+opc_op ALL=(ALL) NOPASSWD: /bin/vi /etc/telegraf/telegraf.conf
+opc_op All=(ALL) NOPASSWD: /bin/cp, /bin/chmod, /bin/chown, /bin/cat, /bin/mkdir
+
+
+
+.............................................
+CREATING ASM DISK
+
+oracle DBA must provide you with a name/label for ASM disk, in this case is: SIG_DATA_20230526_2
+
+ fdisk -l 2>/dev/null | egrep '^Disk' | egrep -v 'dm-|type|identifier'
+
+
+ ll /sys/class/fc_host/
+
+echo 1 > /sys/class/fc_host/host1/issue_lip
+
+fdisk -l 2>/dev/null | egrep '^Disk' | egrep -v 'dm-|type|identifier'
+
+	/dev/mapper/360002ac00000000000000fab00002fc8 107Gb  ---> new attached disk
+
+cd /dev/mapper
+
+ls -l | grep 360002ac00000000000000fab00002fc8
+
+parted 360002ac00000000000000fab00002fc8 mklabel GPT
+
+parted 360002ac00000000000000fab00002fc8 mkpart SIG_DATA_20230526_2 2048s 100%
+
+/etc/init.d/oracleasm createdisk SIG_DATA_20230526_2 /dev/mapper/360002ac00000000000000fab00002fc8p1
+
+partprobe
+
+oracleasm scandisks
+
+oracleasm listdisks
+
+on server B (second node)
+
+partprobe
+
+oracleasm scandisks
+
+oracleasm listdisks
+
+on server C (third node)
+
+partprobe
+
+oracleasm scandisks
+
+oracleasm listdisks
+...............................................................................
+
+ps -eo pid,user,ppid,cmd,%mem,%cpu --sort=-%cpu | head
+
+ ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10
+
+ vmstat 2 4  -----> if number in column r is greater than number of CPU, them we have cpu bottleneck
+
+lscpu | egrep 'Model name|Socket|Thread|NUMA|CPU\(s\)'
+..................................................
+
+stopping opsware:
+/etc/init.d/opsware-agent stop
+............................................
+
+zabbix agent not reachble
+
+check if /etc/zabbix/zabbix_agentd.conf has changed
+service zabbix-agent restart
+
+..............................................
+Adding user to a group:
+
+usermod -G <group name> <user id>
+
+..............................................
+
+kill PID of deleted open file/Big file not seen on file system:
+
+lsof -a +L1 /tmp
+lsof | grep <file>
+kill -9 <PID>
+
+...........................
+
+update packages  in Debian
+
+apt list --installed | grep linux-libc
+apt-get update
+apt-get update && apt-get upgrade linux-libc-dev
+
+..........................................
+
+apt-get install ufw
+ufw status
+ufw enable
+.......................................
+
+send email from command linux:
+
+........................................
+Mount NFS shares
+
+mount -t nfs cscpddr10-10G2.cablevision.com:/data/col1/backup/pgbart /pgbart_ddr10/bart22
+
+vi /etc/fstab
+
+cscpddr10-10G2.cablevision.com:/data/col1/backup/pgbart /pgbart_ddr10/bart22 nfs rw,hard,intr 0 0
+
+............................................................................
+
+view CPU usage>
+
+ echo "CPU Usage: "$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"%"
+CPU Usage: 0%
+root@betbarman01:/# sar -u 1 2
+Linux 6.1.0-10-amd64 (betbarman01)      08/11/2023      _x86_64_        (8 CPU)
+
+01:55:46 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+01:55:47 PM     all      2.00      0.00      1.00      0.00      0.00     97.00
+01:55:48 PM     all      0.00      0.00      0.00      0.00      0.00    100.00
+Average:        all      1.00      0.00      0.50      0.00      0.00     98.50
+root@betbarman01:/#
+
+.....................................................................................
+
+echo "CPU Usage: "$[ 100 - $(vmstat 1 2|tail -1|awk '{print $15}')]"%"
