@@ -1,0 +1,152 @@
+
+1 - requisitar para o usuário as informações
+
+ 
+
+For the Any server build request first we will collect all the details
+
+ 
+
+Hostname (FQDN)
+Subnet Range
+RAM
+CPU
+Storage
+Business Owner
+OS Version:
+Application/Database Name which will be hosted
+EVN : PROD/DEV
+Vcenter Name
+Server Description
+
+ 
+
+
+Exemplo de email:
+Vijay Kadayam,
+
+ 
+
+Could you provide the informations bellow to build the new server.
+
+ 
+
+For the Any server build request first we will collect all the details
+
+ 
+
+Hostname (FQDN)
+Subnet Range
+RAM
+CPU
+Storage
+Business Owner
+OS Version:
+Application/Database Name which will be hosted
+EVN : PROD/DEV
+Vcenter Name
+Server Description
+------
+2 - Request ip for the IT Technology Ops team
+assign group please specify
+
+ 
+
+IT Technology Ops <ITTechnologyOps@AlticeUSA.com>  IT-Technical Operations L1
+example Hostname : betdlbitbucketap01 ip : 10.190.36*
+Examplo de ticket TASK3418103
+
+ 
+
+link para abrir o ticket 
+https://cablevision.service-now.com/nav_to.do?uri=%2Fscss%2Fit_request.do%3Fsysparm_catalog_item%3Db67bdf2087142100a90d276709434d87
+
+ 
+
+2 - open a change
+CHG0093366 ou CHG0093638
+
+ 
+
+3 - build the server
+
+ 
+
+
+Request ip for the IT Technology Ops team
+assign group please specify
+
+ 
+
+IT Technology Ops 
+IT-Technical Operations L1
+example Hostname : betdlbitbucketap01 ip : 10.190.36*
+
+ 
+
+
+----
+
+ 
+
+ 
+
+exemplo the change para server build CHG0093366 ou CHG0093638
+
+ 
+
+ 
+
+
+entrar no vmware e usar a pasta template e selecionar qual SO deseja utilizar
+
+ 
+
+no caso usamos a imagem abaixo
+
+ 
+
+debian11-bullseye-template
+
+ 
+
+
+debian
+hostnamectl set-hostname altbthtltautoapp02.alticeusa.com
+ifconfig ens192 10.190.36.97 netmask 255.255.255.0 up
+route add default gw 10.190.36.1  ens192
+
+ 
+
+criar usuário
+#create the group:
+groupadd -g 30000 platops
+#create the user and add it to the group:
+useradd platops -u 30000 -g 30000 -m -s /bin/bash
+
+ 
+
+visudo
+####platops Continious account TASK1186579
+platops ALL = NOPASSWD: ALL
+
+ 
+
+configurar chave ssh para usuário platops
+chmod 700 .ssh
+chmod 600 ~/.ssh/authorized_keys
+
+ 
+
+from="10.128.60.99,10.128.60.100" ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDVuo4nuyPhgwcFCgwT91YZ8zWsysIMhulSXnaqa6aVQvjkPXYbl8tnl8Vl2mGTEj0iA1Rz54KJdkL5T9uC+C50HsffHsrrU4Fc5bO4e16O+BwhH2th4tAWXdLTimAs5S9qGhrqrsIThxckycJ7euAL6VIWMRuCIcG9XlsX3+iHMCKOTnd4B2gm/9O9e0EdBUVj4SoTvJWMus+xCbyC8X/g1Ws7NCm2eijgE+s486axqERiELb26sWXz5PQMYdGUmxkMyY68OS3bnidmgjwHURzok9NGKM6PdCE84aKEGmpj3bzHZNs1NRz93gZOm7UUfXmbTHKaSkbQP0o76z6yjptKrl2rNZQu7M9B2Tnkrmq3OKJeq2KRL1WvTsDwDjsuPxf8QAprb89u/lzcGzXGB12i4sZwxIB9yRfewfTAInr0XW7LNJGD2yH3mTxdekQAd9XMT5BTCnqRxp5R/o2QSY2RKnLm/cGogkTZKnlirtHDgieoFLZgSUcMdrtnussZQC55DMcFwWMpBPxxG2LGiNC8WhlR2dlM5XBoeUdU4t4HnmX8B3lUpksFZxxfYh5HuqXJXebbLElch1ySc40oWUl6Sa5181XrvnCHMFo5Oj45kDvN8P5bxsU8OkIkY9QY2P7HSKXBPsS1zQEA+p+Ffr0oWWLXfSjjoZPtBbEY94tgw== platops@altbthpljump01.alticeusa.com
+
+ 
+
+ 
+
+lembrar que só podemos entregar o servidor para o usuário depois de todas as tasks da change estarem completas!!!
+tem uma task que é importante que é a do scanner de vulnerabilidades pelo time de segurança
+
+ 
+
+caso usuário precise de algo diferente no servidor, precisa ser aberto um novo ticket

@@ -1,0 +1,100 @@
+
+:/etc/yum.repos.d # mv CVE-2014-6712.repo CVE-2014-6712.old
+:/etc/yum.repos.d # mv cvldkst2.repo cvldkst2.old
+:/etc/yum.repos.d # mv rhel-source.repo rhel-source.old
+:/etc/yum.repos.d # mv redhat.repo redhat.old
+:/etc/yum.repos.d # ls -lrt
+
+subscription-manager status
+subscription-manager remove --all
+subscription-manager unregister
+subscription-manager clean
+
+
+
+rpm -Uvh http://altbthplsmtb01.alticeusa.com/pub/katello-ca-consumer-altbthplsmtb01.alticeusa.com-1.0-1.noarch.rpm
+
+rpm -Uvh http://altbthplkatel.alticeusa.com/pub/katello-ca-consumer-altbthplkatel.alticeusa.com-1.0-1.noarch.rpm
+
+.........................................................
+if you get this:
+
+ file /usr/bin/katello-rhsm-consumer from install of katello-ca-consumer-altbthplsmtb01.alticeusa.com-1.0-1.noarch conflicts with file from package katello-ca-consumer-altbthplsat01.cablevision.com-1.0-1.noarch
+
+you need to run:
+
+rpm -e katello-ca-consumer-altbthplsat01.cablevision.com-1.0-1.noarch
+
+them repeat rpm -Uvh ....
+..........................................................
+
+rpm -Uvh http://altbthplsmtc01.alticeusa.com/pub/katello-ca-consumer-altbthplsmtc01.alticeusa.com-1.0-1.noarch.rpm
+
+rpm -Uvh http://altbthplkatel.alticeusa.com/pub/katello-ca-consumer-altbthplkatel.alticeusa.com-1.0-1.noarch.rpm
+
+
+wget http://altbthplsmtb01.alticeusa.com/pub/204.pem
+
+check if file 204.pem is there by doing ls -al
+
+mv 204.pem /etc/pki/product/
+
+vi 204.pem
+
+-----BEGIN CERTIFICATE-----
+MIIGTTCCBDWgAwIBAgIJALDxRLt/tVB/MA0GCSqGSIb3DQEBBQUAMIGuMQswCQYD
+VQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExFjAUBgNVBAoMDVJlZCBI
+YXQsIEluYy4xGDAWBgNVBAsMD1JlZCBIYXQgTmV0d29yazEuMCwGA1UEAwwlUmVk
+IEhhdCBFbnRpdGxlbWVudCBQcm9kdWN0IEF1dGhvcml0eTEkMCIGCSqGSIb3DQEJ
+ARYVY2Etc3VwcG9ydEByZWRoYXQuY29tMB4XDTE4MDYxMTIwNTEyMloXDTM4MDYw
+NjIwNTEyMlowRDFCMEAGA1UEAww5UmVkIEhhdCBQcm9kdWN0IElEIFs5MDZlYjgw
+OC05NmQxLTRkN2ItYmM1Ni00ZmQ1MWI2YzY3YWRdMIICIjANBgkqhkiG9w0BAQEF
+AAOCAg8AMIICCgKCAgEAxj9J04z+Ezdyx1U33kFftLv0ntNS1BSeuhoZLDhs18yk
+sepG7hXXtHh2CMFfLZmTjAyL9i1XsxykQpVQdXTGpUF33C2qBQHB5glYs9+d781x
+8p8m8zFxbPcW82TIJXbgW3ErVh8vk5qCbG1cCAAHb+DWMq0EAyy1bl/JgAghYNGB
+RvKJObTdCrdpYh02KUqBLkSPZHvo6DUJFN37MXDpVeQq9VtqRjpKLLwuEfXb0Y7I
+5xEOrR3kYbOaBAWVt3mYZ1t0L/KfY2jVOdU5WFyyB9PhbMdLi1xE801j+GJrwcLa
+xmqvj4UaICRzcPATP86zVM1BBQa+lilkRQes5HyjZzZDiGYudnXhbqmLo/n0cuXo
+QBVVjhzRTMx71Eiiahmiw+U1vGqkHhQNxb13HtN1lcAhUCDrxxeMvrAjYdWpYlpI
+yW3NssPWt1YUHidMBSAJ4KctIf91dyE93aStlxwC/QnyFsZOmcEsBzVCnz9GmWMl
+1/6XzBS1yDUqByklx0TLH+z/sK9A+O2rZAy1mByCYwVxvbOZhnqGxAuToIS+A81v
+5hCjsCiOScVB+cil30YBu0cH85RZ0ILNkHdKdrLLWW4wjphK2nBn2g2i3+ztf+nQ
+ED2pQqZ/rhuW79jcyCZl9kXqe1wOdF0Cwah4N6/3LzIXEEKyEJxNqQwtNc2IVE8C
+AwEAAaOB1jCB0zAJBgNVHRMEAjAAME8GDCsGAQQBkggJAYFMAQQ/DD1SZWQgSGF0
+IEVudGVycHJpc2UgTGludXggU2VydmVyIC0gRXh0ZW5kZWQgTGlmZSBDeWNsZSBT
+dXBwb3J0MBYGDCsGAQQBkggJAYFMAgQGDAQ2LjEwMBgGDCsGAQQBkggJAYFMAwQI
+DAZ4ODZfNjQwQwYMKwYBBAGSCAkBgUwEBDMMMXJoZWwtNixyaGVsLTYtZWxzLHJo
+ZWwtNi1lbHMtc2VydmVyLHJoZWwtNi1zZXJ2ZXIwDQYJKoZIhvcNAQEFBQADggIB
+AFMzHn1Dhxc65dp8yMz4D/hN7rJvWlC3eKYAG1mV6HWv8nRAJRaGf5C9c/I3L2eT
+jPBSSVy5f3QVWXzyf27W6qxIATojtl+0YZWYjlEyUA8QBuuHoulJM4yDE29ALTVz
+zlzNQUVPSCkDt1Iftzcr64o9QLrcavT8L0qLOWnrRgHN+u1IyPgBdgLDT1AEuqr5
+pQWtqo/RZcpIlVC89bg9BmF4nLS431qHxHnrDDQoESNhdB5R+3lAq8qwRilLaQsg
+szd4X7+KGEaHc2t7FWZO9VcDXnvitepVGjApdlEjLCni9ZVqamnAVQfGtLCa5R92
+El/b5AI2C8ehS9knnJIWIlYZ2E+S1avpXdFj7TkhIxHFl3yGLlH84/i+2CidQICS
+u65Ld4yAwOh9rNXvnayFEOWEWF8Av/PuQzAuCFDE2k/Zq0BafW3xRKxwGipDpEvU
+qu6iJXY+lWNWfW/mG887PkFOzVaCWod/b4fbon9Wju1xdM9JTtY8Ey8dm77vX9Jx
+JJgiCkF46A7bHsod1VjS7QWFs6u9Bgiu7Dg6gVEKJwiEBF6aUTGC3blX3LfxZ5Ll
+RW1E71/MAQPprG0sIGgrj/vsaG1ZzT9WHqRB4Tfchu8LdA4eGIE6gn811Cx8Tc90
+P07WgpG1ZkEcj7yrxky2bDTfd7dsjBC3GdN67vMuVAVh
+-----END CERTIFICATE-----
+
+
+subscription-manager register --force --org="AlticeUSA" --activationkey="RHEL 6 Server x86_64 Production Altice Key"
+
+
+
+subscription-manager attach --auto
+
+subscription-manager refresh
+
+yum repolist
+
+yum check-update
+
+NOW Patching:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+subscription-manager register --force --org="AlticeUSA" --activationkey="RHEL 7 Server x86_64 Production Altice Key"
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
